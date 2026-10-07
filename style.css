@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap');
+
+:root {
+    --bg: #0a0a0c;
+    --surface: #131316;
+    --surface-2: #1a1a1f;
+    --line: #26262d;
+    --text: #ecebf0;
+    --muted: #8b8a96;
+    --rose: #e58fa8;
+    --violet: #9b84d8;
+    --green: #6fbf9a;
+    --red: #e0708a;
+    --radius: 14px;
+}
+
+/* ---------- Base ---------- */
+
+html,
+body,
+.stApp,
+[class*="css"] {
+    font-family: "Manrope", system-ui, sans-serif;
+    color: var(--text);
+}
+
+.stApp {
+    background: var(--bg);
+}
+
+/* Hide Streamlit default elements */
+
+#MainMenu,
+footer,
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stHeaderActionElements"] {
+    display: none !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+/* ---------- Main Container ---------- */
+
+.block-container {
+    max-width: 760px;
+    padding: 3.5rem 1.5rem 5rem 1.5rem;
+}
+
+/* ---------- Main Title ---------- */
+
+[data-testid="stHeading"] h2,
+.stApp h2 {
+    font-family: "Sora", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-top: 2.25rem;
+    padding: 0;
+}
+
+/* First st.header = page title */
+
+[data-testid="stElementContainer"]:has(h2):first-of-type h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-top: 0;
+}
+
+/* Subtitle */
+
+[data-testid="stElementContainer"]:has(h2):first-of-type
++ [data-testid="stElementContainer"]
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* ---------- Title Accent ---------- */
+
+[data-testid="stElementContainer"]:has(h2):first-of-type::after {
+    content: "";
+    display: block;
+    width: 96px;
+    height: 3px;
+    margin: 1.25rem 0 0.5rem 0;
+    border-radius: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--rose),
+        var(--violet)
+    );
+    box-shadow: 0 0 18px rgba(229, 143, 168, 0.35);
+}
+
+/* ---------- Input Features Heading ---------- */
+
+[data-testid="stElementContainer"]:has(h2) h2 {
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--rose);
+    line-height: 1.2;
+}
+
+/* ---------- Slider Cards ---------- */
+
+[data-testid="stSlider"] {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0.9rem 1.25rem 0.6rem 1.25rem;
+    margin-bottom: 12px;
+    transition: border-color 0.15s ease;
+}
+
+/* Slider hover */
+
+[data-testid="stSlider"]:hover,
+[data-testid="stSlider"]:focus-within {
+    border-color: rgba(155, 132, 216, 0.6);
+}
+
+/* Slider label */
+
+[data-testid="stSlider"] label p,
+[data-testid="stWidgetLabel"] p {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Slider value */
+
+[data-testid="stSliderThumbValue"] {
+    color: var(--rose);
+    font-weight: 600;
+}
+
+/* Slider thumb */
+
+[data-testid="stSlider"] div[role="slider"] {
+    background-color: var(--rose);
+    box-shadow: 0 0 0 5px rgba(229, 143, 168, 0.16);
+}
+
+/* Slider minimum and maximum values */
+
+[data-testid="stTickBarMin"],
+[data-testid="stTickBarMax"] {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+/* ---------- Prediction Button ---------- */
+
+.stButton {
+    margin-top: 1.5rem;
+}
+
+.stButton > button {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #17090e;
+    background: linear-gradient(
+        90deg,
+        var(--rose),
+        #c79ad0
+    );
+    border: none;
+    border-radius: 12px;
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+}
+
+/* Button hover */
+
+.stButton > button:hover {
+    color: #17090e;
+    box-shadow: 0 6px 28px rgba(229, 143, 168, 0.28);
+}
+
+/* Button active */
+
+.stButton > button:active {
+    transform: translateY(1px);
+}
+
+/* Button focus */
+
+.stButton > button:focus-visible {
+    outline: 2px solid var(--violet);
+    outline-offset: 3px;
+}
+
+/* ---------- Benign Result ---------- */
+
+[data-testid="stElementContainer"]:has(.stButton)
++ [data-testid="stElementContainer"]
+[data-testid="stMarkdownContainer"] {
+    margin-top: 1.25rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--surface);
+    border: 1px solid rgba(111, 191, 154, 0.5);
+    border-radius: var(--radius);
+    animation: reveal 0.5s ease both;
+}
+
+[data-testid="stElementContainer"]:has(.stButton)
++ [data-testid="stElementContainer"]
+[data-testid="stMarkdownContainer"] p {
+    font-family: "Sora", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--green);
+}
+
+/* ---------- Malignant Result ---------- */
+
+[data-testid="stAlert"] {
+    margin-top: 1.25rem;
+    padding: 1.4rem 1.6rem;
+    background: rgba(224, 112, 138, 0.08);
+    border: 1px solid rgba(224, 112, 138, 0.55);
+    border-radius: var(--radius);
+    animation: reveal 0.5s ease both;
+}
+
+[data-testid="stAlertContainer"] {
+    background: transparent;
+}
+
+[data-testid="stAlert"] p {
+    font-family: "Sora", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--red);
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+
+    .block-container {
+        padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    [data-testid="stElementContainer"]:has(h2):first-of-type h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ---------- Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
