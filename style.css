@@ -14,8 +14,6 @@
     --radius: 14px;
 }
 
-/* ---------- Base ---------- */
-
 html,
 body,
 .stApp,
@@ -28,7 +26,6 @@ body,
     background: var(--bg);
 }
 
-/* Hide Streamlit default elements */
 
 #MainMenu,
 footer,
@@ -42,14 +39,13 @@ footer,
     background: transparent;
 }
 
-/* ---------- Main Container ---------- */
+
 
 .block-container {
     max-width: 760px;
     padding: 3.5rem 1.5rem 5rem 1.5rem;
 }
 
-/* ---------- Main Title ---------- */
 
 [data-testid="stHeading"] h2,
 .stApp h2 {
@@ -62,7 +58,7 @@ footer,
     padding: 0;
 }
 
-/* First st.header = page title */
+
 
 [data-testid="stElementContainer"]:has(h2):first-of-type h2 {
     font-size: 2.8rem;
@@ -72,7 +68,7 @@ footer,
     margin-top: 0;
 }
 
-/* Subtitle */
+
 
 [data-testid="stElementContainer"]:has(h2):first-of-type
 + [data-testid="stElementContainer"]
@@ -82,7 +78,7 @@ p {
     color: var(--muted);
 }
 
-/* ---------- Title Accent ---------- */
+
 
 [data-testid="stElementContainer"]:has(h2):first-of-type::after {
     content: "";
@@ -99,7 +95,7 @@ p {
     box-shadow: 0 0 18px rgba(229, 143, 168, 0.35);
 }
 
-/* ---------- Input Features Heading ---------- */
+
 
 [data-testid="stElementContainer"]:has(h2) h2 {
     padding-left: 0.75rem;
@@ -107,7 +103,7 @@ p {
     line-height: 1.2;
 }
 
-/* ---------- Slider Cards ---------- */
+
 
 [data-testid="stSlider"] {
     background: var(--surface);
@@ -118,14 +114,13 @@ p {
     transition: border-color 0.15s ease;
 }
 
-/* Slider hover */
+
 
 [data-testid="stSlider"]:hover,
 [data-testid="stSlider"]:focus-within {
     border-color: rgba(155, 132, 216, 0.6);
 }
 
-/* Slider label */
 
 [data-testid="stSlider"] label p,
 [data-testid="stWidgetLabel"] p {
@@ -134,21 +129,18 @@ p {
     color: var(--text);
 }
 
-/* Slider value */
 
 [data-testid="stSliderThumbValue"] {
     color: var(--rose);
     font-weight: 600;
 }
 
-/* Slider thumb */
 
 [data-testid="stSlider"] div[role="slider"] {
     background-color: var(--rose);
     box-shadow: 0 0 0 5px rgba(229, 143, 168, 0.16);
 }
 
-/* Slider minimum and maximum values */
 
 [data-testid="stTickBarMin"],
 [data-testid="stTickBarMax"] {
@@ -156,7 +148,6 @@ p {
     font-size: 0.75rem;
 }
 
-/* ---------- Prediction Button ---------- */
 
 .stButton {
     margin-top: 1.5rem;
@@ -181,27 +172,25 @@ p {
         transform 0.1s ease;
 }
 
-/* Button hover */
 
 .stButton > button:hover {
     color: #17090e;
     box-shadow: 0 6px 28px rgba(229, 143, 168, 0.28);
 }
 
-/* Button active */
+
 
 .stButton > button:active {
     transform: translateY(1px);
 }
 
-/* Button focus */
+
 
 .stButton > button:focus-visible {
     outline: 2px solid var(--violet);
     outline-offset: 3px;
 }
 
-/* ---------- Benign Result ---------- */
 
 [data-testid="stElementContainer"]:has(.stButton)
 + [data-testid="stElementContainer"]
@@ -223,7 +212,7 @@ p {
     color: var(--green);
 }
 
-/* ---------- Malignant Result ---------- */
+
 
 [data-testid="stAlert"] {
     margin-top: 1.25rem;
@@ -245,7 +234,6 @@ p {
     color: var(--red);
 }
 
-/* ---------- Animation ---------- */
 
 @keyframes reveal {
     from {
@@ -259,7 +247,7 @@ p {
     }
 }
 
-/* ---------- Responsive ---------- */
+
 
 @media (max-width: 640px) {
 
@@ -272,7 +260,7 @@ p {
     }
 }
 
-/* ---------- Accessibility ---------- */
+
 
 @media (prefers-reduced-motion: reduce) {
 
